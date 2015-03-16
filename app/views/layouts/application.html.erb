@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="LiveHockey">
 <head>
-  <title>Open Ice hockey</title>
+  <title ng-bind-html="title">Open Ice hockey</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
