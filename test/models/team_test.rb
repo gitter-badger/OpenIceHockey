@@ -22,4 +22,24 @@ class TeamTest < ActiveSupport::TestCase
     # ALl values present, should pass!
     assert team.valid?
   end
+
+  test "staff member relationship validation" do
+    team = Team.new(name: "Team Name", logo: "logo", url: "http://www.example.com/", brand_color: "#000000")
+    assert team.valid?
+
+    member = StaffMember.new
+    team.staff_members << member
+    assert !team.valid?
+
+    member.name = "Name"
+    assert !team.valid?
+
+    member.job_title = "Title"
+    assert team.valid?
+  end
+
+  test "has_many relationship" do
+    team = Team.find(1)
+    assert_equal team.staff_members.count, 1
+  end
 end
