@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Team Name
+  logo: http://www.example.com/logo.png
+  url: http://www.example.com/
+  brand_color: #000000

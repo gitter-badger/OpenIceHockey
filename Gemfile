@@ -35,3 +35,4 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem "bower-rails", "~> 0.9.2"
+gem "validate_url"
