@@ -3,7 +3,8 @@ angular.module('Routes.Frontend').config([
   function ($routeProvider) {
     $routeProvider.when('/', {
       title: '',
-      templateUrl: 'frontend/home.html'
+      templateUrl: 'frontend/home.html',
+      controller: 'MainController'
     });
   }
 ]);

@@ -1,0 +1,15 @@
+<form name="forms.login" class="form" novalidate ng-controller="LoginController">
+  <div class="form-group">
+    <label for="forms-login-username" class="control-label">Username</label>
+    <input id="forms-login-username" class="form-control" type="text" name="username" ng-model="user.username" required />
+  </div>
+  <div class="form-group">
+    <label for="forms-login-password" class="control-label">Password</label>
+    <input id="forms-login-password" class="form-control" type="password" name="password" ng-model="user.password" required />
+  </div>
+  <div class="form-group">
+    <ajax-button btn-type="'btn-success'" loading="loginFormLoading" disabled="!forms.login.$valid" click="submitLogin">
+      Login
+    </ajax-button>
+  </div>
+</form>

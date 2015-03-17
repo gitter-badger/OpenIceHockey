@@ -4,7 +4,9 @@
 //= require angular-sanitize/angular-sanitize
 //= require_tree ../templates
 //= require configs.js
+//= require_tree ./controllers
 //= require_tree ./routes
+//= require_tree ./directives
 //= require_tree ./filters
 angular.module('LiveHockey').run([
   '$location',

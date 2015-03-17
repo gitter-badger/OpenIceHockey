@@ -1,0 +1,22 @@
+<form name="forms.register" class="form" novalidate ng-controller="RegisterController">
+  <div class="form-group" ng-class="{'has-error has-feedback': forms.register.$dirty && forms.register.username.$dirty && !forms.register.username.$valid}">
+    <label for="form-register-username" class="control-label">Username</label>
+    <input id="form-register-username" class="form-control" type="text" name="username" ng-model="user.username" required />
+    <span class="fa fa-times form-control-feedback" ng-show="forms.register.$dirty && forms.register.username.$dirty && !forms.register.username.$valid"></span>
+  </div>
+  <div class="form-group" ng-class="{'has-error has-feedback': forms.register.$dirty && forms.register.email.$dirty && !forms.register.email.$valid}">
+    <label for="form-register-email" class="control-label">Email</label>
+    <input id="form-register-email" class="form-control" type="email" name="email" ng-model="user.email" required />
+    <span class="fa fa-times form-control-feedback" ng-show="forms.register.$dirty && forms.register.email.$dirty && !forms.register.email.$valid"></span>
+  </div>
+  <div class="form-group" ng-class="{'has-error has-feedback': forms.register.$dirty && forms.register.password.$dirty && !forms.register.password.$valid}">
+    <label for="form-register-password" class="control-label">Password</label>
+    <input id="form-register-password" class="form-control" type="password" name="password" ng-model="user.password" required />
+    <span class="fa fa-times form-control-feedback" ng-show="forms.register.$dirty && forms.register.password.$dirty && !forms.register.password.$valid"></span>
+  </div>
+  <div class="form-group">
+    <ajax-button btn-type="'btn-success'" loading="registerFormLoading" disabled="!forms.register.$valid" click="submitRegister">
+      Register
+    </ajax-button>
+  </div>
+</form>
