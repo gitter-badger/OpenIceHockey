@@ -38,3 +38,4 @@ gem 'spring',        group: :development
 
 gem "bower-rails", "~> 0.9.2"
 gem "validate_url"
+gem 'angular-rails-templates'

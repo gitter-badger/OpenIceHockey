@@ -11,6 +11,7 @@ angular.module('LiveHockey.Filters', []);
 angular.module('LiveHockey', [
   'ngRoute',
   'ngSanitize',
+  'templates',
   // Routes
   'Routes.Frontend',
   // Controllers

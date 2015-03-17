@@ -1,6 +1,8 @@
 //= require angular/angular
+//= require angular-rails-templates
 //= require angular-route/angular-route
 //= require angular-sanitize/angular-sanitize
+//= require_tree ../templates
 //= require configs.js
 //= require_tree ./routes
 //= require_tree ./filters
