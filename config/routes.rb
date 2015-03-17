@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
   root 'application#index'
 
+  namespace :api do
+    namespace :v1 do
+      # All teams API
+      get 'teams' => 'team#all'
+
+      # Single team API
+      get 'team/:id/staff' => 'team#teamstaff'
+    end
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

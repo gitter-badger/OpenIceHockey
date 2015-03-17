@@ -6,3 +6,10 @@ one:
   logo: http://www.example.com/logo.png
   url: http://www.example.com/
   brand_color: #000000
+
+two:
+  id: 2
+  name: Team Name
+  logo: http://www.example.com/logo.png
+  url: http://www.example.com/
+  brand_color: #000000
