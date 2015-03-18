@@ -20,7 +20,7 @@ angular.module('LiveHockey').run([
     });
 
     // Is the user logged in?
-    if (LOGGED_IN) {
+    if (typeof LOGGED_IN !== 'undefined') {
       $rootScope.loggedIn = true;
     }
 }]);
