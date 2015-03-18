@@ -21,6 +21,20 @@ angular.module('LiveHockey.Services.User').service('UserService', [
 
         return deferred.promise;
       },
+      login: function (data) {
+        var deferred = $q.defer();
+
+        // Send the login POST request
+        $http({
+          url: '/' + API_ENDPOINT + '/' + API_VERSION + '/user/login',
+          method: 'POST',
+          data: data
+        }).then(function (data) {
+          deferred.resolve(data.data);
+        });
+
+        return deferred.promise;
+      },
       register: function (data) {
         var deferred = $q.defer();
 
@@ -28,9 +42,9 @@ angular.module('LiveHockey.Services.User').service('UserService', [
         $http({
           url: '/' + API_ENDPOINT + '/' + API_VERSION + '/user/register',
           method: 'POST',
-          params: data
+          data: data
         }).then(function (data) {
-          deferred.resolve(data);
+          deferred.resolve(data.data);
         });
 
         return deferred.promise;

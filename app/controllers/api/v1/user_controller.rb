@@ -17,6 +17,26 @@ class Api::V1::UserController < ActionController::Base
     end
   end
 
+  # Login a user
+  # POST request
+  def login
+    user = User.find_by_email(params[:email])
+
+    if user
+      if user.authenticate(params[:password])
+        session[:user] = user.id
+
+        render :json => {
+          user: user
+        }
+      else
+        render :json => self.error_response(400, "Password is incorrect.")
+      end
+    else
+      render :json => self.error_response(400, "No user could be found with email #{params[:email]}.")
+    end
+  end
+
   # Register a user
   # POST request
   def user_register

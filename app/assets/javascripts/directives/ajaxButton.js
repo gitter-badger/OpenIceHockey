@@ -9,6 +9,18 @@ angular.module('LiveHockey.Directives').directive('ajaxButton', function () {
       type: '=btnType',
       loading: '=',
       click: '='
+    },
+    link: function ($scope) {
+      var oldDisabled = $scope.disabled;
+
+      $scope.$watch('loading', function (newValue) {
+        if (newValue) {
+          oldDisabled = $scope.disabled;
+          $scope.buttonDisabled = true;
+        } else {
+          $scope.buttonDisabled = oldDisabled;
+        }
+      });
     }
   };
 });

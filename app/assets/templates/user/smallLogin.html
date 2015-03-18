@@ -1,4 +1,7 @@
 <form name="forms.login" class="form" novalidate ng-controller="LoginController">
+  <div ng-if="error" class="alert alert-danger" role="alert">
+    <strong>Error!</strong> {{error.message}}
+  </div>
   <div class="form-group">
     <label for="forms-login-email" class="control-label">Email</label>
     <input id="forms-login-email" class="form-control" type="email" name="email" ng-model="user.email" required />

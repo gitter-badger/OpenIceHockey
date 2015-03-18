@@ -18,4 +18,9 @@ angular.module('LiveHockey').run([
     $rootScope.$on('$routeChangeSuccess', function (event, current) {
       $rootScope.title = $filter('pagetitle')(current.$$route.title);
     });
+
+    // Is the user logged in?
+    if (LOGGED_IN) {
+      $rootScope.loggedIn = true;
+    }
 }]);

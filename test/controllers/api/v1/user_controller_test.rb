@@ -28,4 +28,24 @@ class UserControllerTest < ActionController::TestCase
     jsonHash = JSON.parse(response.body)
     assert_equal jsonHash["users"], 1
   end
+
+  test "login user" do
+    post(:login, { :email => "t@t.com", :password => "a" })
+    assert_response :success
+
+    jsonHash = JSON.parse(response.body)
+    assert jsonHash["error"]
+
+    post(:login, { :email => "test@test.com", :password => "a" })
+    assert_response :success
+
+    jsonHash = JSON.parse(response.body)
+    assert jsonHash["error"]
+
+    post(:login, { :email => "test@test.com", :password => "password" })
+    assert_response :success
+
+    jsonHash = JSON.parse(response.body)
+    assert jsonHash["user"]
+  end
 end
