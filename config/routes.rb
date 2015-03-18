@@ -3,11 +3,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      # All teams API
+      # Teams API
       get 'teams' => 'team#all'
-
-      # Single team API
       get 'team/:id/staff' => 'team#teamstaff'
+
+      # User API
+      post 'users/email' => 'user#email_search'
     end
   end
 

@@ -14,6 +14,7 @@ angular.module('LiveHockey.Directives.User', []);
 
 // Services
 angular.module('LiveHockey.Services', []);
+angular.module('LiveHockey.Services.User', []);
 
 // Configure the application
 angular.module('LiveHockey', [
@@ -31,7 +32,8 @@ angular.module('LiveHockey', [
   'LiveHockey.Directives',
   'LiveHockey.Directives.User',
   // Services
-  'LiveHockey.Services'
+  'LiveHockey.Services',
+  'LiveHockey.Services.User'
 ])
 .constant('DEFAULT_PAGE_TITLE', 'Open Ice hockey')
 .constant('PAGE_TITLE_DIVIDER', '&middot;')
