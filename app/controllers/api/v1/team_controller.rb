@@ -18,7 +18,7 @@ class Api::V1::TeamController < ActionController::Base
   end
 
   def teamstaff
-    staff = StaffMember.where(:team_id => params[:id])
+    staff = StaffMember.where(:team_id => params[:id]).order(self.get_order)
 
     # Render the JSON
     jsonHash = {
