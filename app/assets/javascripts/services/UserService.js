@@ -1,9 +1,11 @@
 angular.module('LiveHockey.Services.User').service('UserService', [
   '$http',
   '$q',
+  '$timeout',
+  '$rootScope',
   'API_ENDPOINT',
   'API_VERSION',
-  function ($http, $q, API_ENDPOINT, API_VERSION) {
+  function ($http, $q, $timeout, $rootScope, API_ENDPOINT, API_VERSION) {
     return {
       searchForEmail: function (email) {
         var deferred = $q.defer();
@@ -15,8 +17,8 @@ angular.module('LiveHockey.Services.User').service('UserService', [
           params: {
             email: email
           }
-        }).then(function (data) {
-          deferred.resolve(data.data);
+        }).then(function (resp) {
+          deferred.resolve(resp.data);
         });
 
         return deferred.promise;
@@ -29,8 +31,8 @@ angular.module('LiveHockey.Services.User').service('UserService', [
           url: '/' + API_ENDPOINT + '/' + API_VERSION + '/user/login',
           method: 'POST',
           data: data
-        }).then(function (data) {
-          deferred.resolve(data.data);
+        }).then(function (resp) {
+          deferred.resolve(resp.data);
         });
 
         return deferred.promise;
@@ -43,11 +45,37 @@ angular.module('LiveHockey.Services.User').service('UserService', [
           url: '/' + API_ENDPOINT + '/' + API_VERSION + '/user/register',
           method: 'POST',
           data: data
-        }).then(function (data) {
-          deferred.resolve(data.data);
+        }).then(function (resp) {
+          deferred.resolve(resp.data);
         });
 
         return deferred.promise;
+      },
+      pollUserSession: function () {
+        var self = this;
+
+        $timeout(function () {
+          $http({
+            url: '/' + API_ENDPOINT + '/' + API_VERSION + '/user/check-session',
+            method: 'GET'
+          }).then(function (resp) {
+            var d = resp.data;
+            console.log(d);
+
+            if (d.error) {
+              // Not logged in
+              // Redirect to homepage
+              $rootScope.loggedIn = false;
+              console.log('a');
+            } else {
+              // Logged in
+              $rootScope.loggedIn = true;
+
+              // Run another poll
+              self.pollUserSession();
+            }
+          });
+        }, 10 * 1000);
       }
     };
 }]);

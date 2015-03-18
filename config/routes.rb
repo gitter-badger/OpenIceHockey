@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       post 'users/email' => 'user#email_search'
       post 'user/login' => 'user#login'
       post 'user/register' => 'user#user_register'
+      get 'user/check-session' => 'user#check_login'
 
       get '/' => "api#not_found"
       get '*path' => "api#not_found"

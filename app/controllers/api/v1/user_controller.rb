@@ -25,6 +25,7 @@ class Api::V1::UserController < ActionController::Base
     if user
       if user.authenticate(params[:password])
         session[:user] = user.id
+        self.update_last_seen
 
         render :json => {
           user: user
@@ -47,6 +48,7 @@ class Api::V1::UserController < ActionController::Base
       # Save the user
       user.save
       session[:user] = user.id
+      self.update_last_seen
 
       render :json => {
         user: user
@@ -55,6 +57,18 @@ class Api::V1::UserController < ActionController::Base
       render :json => {
         errors: user.errors
       }
+    end
+  end
+
+  # Check the login status of the current user
+  def check_login
+    if check_logged_in?
+      render :json => {
+        status: 200,
+        message: "Currently logged in."
+      }
+    else
+      render :json => self.error_response(400, "No longer logged in.")
     end
   end
 end

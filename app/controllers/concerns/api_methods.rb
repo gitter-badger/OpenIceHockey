@@ -2,6 +2,7 @@ require 'json'
 
 module ApiMethods
   extend ActiveSupport::Concern
+  include UserMethods
 
   # Get number of records to limit
   def get_record_limit
