@@ -41,3 +41,7 @@ gem "bower-rails", "~> 0.9.2"
 gem "validate_url"
 gem 'angular-rails-templates'
 gem 'bcrypt'
+
+group :development, :test do
+  gem 'web-console', '~> 2.0'
+end
