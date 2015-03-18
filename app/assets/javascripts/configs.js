@@ -4,6 +4,7 @@ angular.module('Controllers.User', []);
 
 // Route modules
 angular.module('Routes.Frontend', []);
+angular.module('Routes.User', []);
 
 // Filters
 angular.module('LiveHockey.Filters', []);
@@ -23,6 +24,7 @@ angular.module('LiveHockey', [
   'templates',
   // Routes
   'Routes.Frontend',
+  'Routes.User',
   // Controllers
   'Controllers.Frontend',
   'Controllers.User',

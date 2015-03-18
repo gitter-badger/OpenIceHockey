@@ -3,9 +3,10 @@ angular.module('LiveHockey.Services.User').service('UserService', [
   '$q',
   '$timeout',
   '$rootScope',
+  '$location',
   'API_ENDPOINT',
   'API_VERSION',
-  function ($http, $q, $timeout, $rootScope, API_ENDPOINT, API_VERSION) {
+  function ($http, $q, $timeout, $rootScope, $location, API_ENDPOINT, API_VERSION) {
     return {
       searchForEmail: function (email) {
         var deferred = $q.defer();
@@ -66,7 +67,9 @@ angular.module('LiveHockey.Services.User').service('UserService', [
               // Not logged in
               // Redirect to homepage
               $rootScope.loggedIn = false;
-              console.log('a');
+
+              // Redirect to homepage
+              $location.path('/');
             } else {
               // Logged in
               $rootScope.loggedIn = true;

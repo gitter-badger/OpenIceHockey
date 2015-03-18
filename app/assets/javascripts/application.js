@@ -13,8 +13,9 @@ angular.module('LiveHockey').run([
   '$location',
   '$rootScope',
   '$filter',
+  '$location',
   'UserService',
-  function($location, $rootScope, $filter, UserService) {
+  function($location, $rootScope, $filter, $location, UserService) {
     // Change the page title
     $rootScope.$on('$routeChangeSuccess', function (event, current) {
       $rootScope.title = $filter('pagetitle')(current.$$route.title);
@@ -23,8 +24,11 @@ angular.module('LiveHockey').run([
     // Is the user logged in?
     if (typeof LOGGED_IN !== 'undefined') {
       $rootScope.loggedIn = true;
+      $location.path('/user');
 
       // Poll the user session
       UserService.pollUserSession();
+    } else {
+      $location.path('/');      
     }
 }]);

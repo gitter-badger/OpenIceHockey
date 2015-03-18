@@ -12,6 +12,8 @@ module UserMethods
     if session[:user] && session[:last_update] > 20.minute.ago
       true
     else
+      session.delete(:user)
+      session.delete(:last_update)
       false
     end
   end
