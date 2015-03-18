@@ -1,16 +1,18 @@
-require 'json'
-
 class Api::V1::TeamController < ActionController::Base
+  include ApiMethods
+
   def all
-    allTeams = Team.all
+    allTeamsCount = Team.count
+    allTeams = Team.limit(self.get_record_limit).offset(self.get_offset).order(self.get_order)
 
     # Render the JSON
-    jsonHash = { data: allTeams.as_json(root: false) }
+    jsonHash = {
+      links: self.generate_pagination_links('teams', allTeamsCount),
+      data: allTeams.as_json(root: false)
+    }
 
     # Pretty print json?
-    if params[:pretty] then
-      jsonHash = JSON.pretty_generate(jsonHash)
-    end
+    jsonHash = self.pretty_print(jsonHash)
 
     render :json => jsonHash
   end
@@ -19,7 +21,13 @@ class Api::V1::TeamController < ActionController::Base
     staff = StaffMember.where(:team_id => params[:id])
 
     # Render the JSON
-    jsonHash = { data: staff.as_json(root: false) }
-    render :json => JSON.pretty_generate(jsonHash)
+    jsonHash = {
+      data: staff.as_json(root: false)
+    }
+
+    # Pretty print json?
+    jsonHash = self.pretty_print(jsonHash)
+
+    render :json => jsonHash
   end
 end
