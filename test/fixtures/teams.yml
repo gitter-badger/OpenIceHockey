@@ -6,6 +6,7 @@ one:
   logo: http://www.example.com/logo.png
   url: http://www.example.com/
   brand_color: #000000
+  user_id: 1
 
 two:
   id: 2
@@ -13,3 +14,4 @@ two:
   logo: http://www.example.com/logo.png
   url: http://www.example.com/
   brand_color: #000000
+  user_id: 1

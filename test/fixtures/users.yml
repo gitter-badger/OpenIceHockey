@@ -1,5 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   email: test@test.com
   password_digest: $2a$10$UPbADUeAeT.3X1Ddq4mii.EZGGEO42iTTItOKGY9U0fnyFrkxNwlC

@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   # Validations
   validates :email, presence: true
   validates :email, uniqueness: true
-  validates :password, presence: true
+
+  has_many :teams, dependent: :destroy
 
   def as_json(options={})
     {

@@ -23,4 +23,17 @@ class UserTest < ActiveSupport::TestCase
 
     assert user.authenticate("password")
   end
+
+  test "team relationship" do
+    user = User.find(1)
+    assert_equal user.teams.count, 2
+  end
+
+  test "adding new team" do
+    user = User.find(1)
+    team = Team.new(name: "Team Name", logo: "logo", url: "http://www.example.com/", brand_color: "#000000")
+    user.teams << team
+
+    assert user.save
+  end
 end

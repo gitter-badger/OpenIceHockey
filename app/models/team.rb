@@ -6,6 +6,7 @@ class Team < ActiveRecord::Base
 
   # Relationships
   has_many :staff_members, dependent: :destroy
+  belongs_to :user
 
   # Staff members API endpoint
   def staff_members_endpoint
