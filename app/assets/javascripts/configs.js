@@ -10,6 +10,7 @@ angular.module('LiveHockey.Filters', []);
 
 // Directives
 angular.module('LiveHockey.Directives', []);
+angular.module('LiveHockey.Directives.User', []);
 
 // Services
 angular.module('LiveHockey.Services', []);
@@ -28,6 +29,7 @@ angular.module('LiveHockey', [
   'LiveHockey.Filters',
   // Directives
   'LiveHockey.Directives',
+  'LiveHockey.Directives.User',
   // Services
   'LiveHockey.Services'
 ])
