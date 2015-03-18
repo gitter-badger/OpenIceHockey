@@ -20,6 +20,20 @@ angular.module('LiveHockey.Services.User').service('UserService', [
         });
 
         return deferred.promise;
+      },
+      register: function (data) {
+        var deferred = $q.defer();
+
+        // Send the register POST request
+        $http({
+          url: '/' + API_ENDPOINT + '/' + API_VERSION + '/user/register',
+          method: 'POST',
+          params: data
+        }).then(function (data) {
+          deferred.resolve(data);
+        });
+
+        return deferred.promise;
       }
     };
 }]);

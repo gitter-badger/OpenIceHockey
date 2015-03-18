@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
       # User API
       post 'users/email' => 'user#email_search'
+      post 'user/register' => 'user#user_register'
 
       get '/' => "api#not_found"
       get '*path' => "api#not_found"
