@@ -8,6 +8,7 @@
 //= require_tree ./routes
 //= require_tree ./directives
 //= require_tree ./filters
+//= require_tree ./services
 angular.module('LiveHockey').run([
   '$location',
   '$rootScope',

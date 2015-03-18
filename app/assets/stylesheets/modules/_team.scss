@@ -1,0 +1,15 @@
+.team-list {
+  > li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    border-left-width: 5px;
+    border-left-style: solid;
+    border-radius: 2px;
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

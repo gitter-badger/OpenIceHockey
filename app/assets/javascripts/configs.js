@@ -11,6 +11,9 @@ angular.module('LiveHockey.Filters', []);
 // Directives
 angular.module('LiveHockey.Directives', []);
 
+// Services
+angular.module('LiveHockey.Services', []);
+
 // Configure the application
 angular.module('LiveHockey', [
   'ngRoute',
@@ -24,7 +27,11 @@ angular.module('LiveHockey', [
   // Filters
   'LiveHockey.Filters',
   // Directives
-  'LiveHockey.Directives'
+  'LiveHockey.Directives',
+  // Services
+  'LiveHockey.Services'
 ])
 .constant('DEFAULT_PAGE_TITLE', 'Open Ice hockey')
-.constant('PAGE_TITLE_DIVIDER', '&middot;');
+.constant('PAGE_TITLE_DIVIDER', '&middot;')
+.constant('API_ENDPOINT', 'api')
+.constant('API_VERSION', 'v1');

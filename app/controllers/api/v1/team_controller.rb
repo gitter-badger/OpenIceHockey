@@ -8,7 +8,7 @@ class Api::V1::TeamController < ActionController::Base
     # Render the JSON
     jsonHash = {
       links: self.generate_pagination_links('teams', allTeamsCount),
-      data: allTeams.as_json(root: false)
+      items: allTeams.as_json(root: false)
     }
 
     # Pretty print json?
@@ -22,7 +22,7 @@ class Api::V1::TeamController < ActionController::Base
 
     # Render the JSON
     jsonHash = {
-      data: staff.as_json(root: false)
+      items: staff.as_json(root: false)
     }
 
     # Pretty print json?
