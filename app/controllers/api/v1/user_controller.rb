@@ -71,4 +71,25 @@ class Api::V1::UserController < ActionController::Base
       render :json => self.error_response(400, "No longer logged in.")
     end
   end
+
+  # Get all the teams for this user
+  def user_teams
+    if check_logged_in?
+      # Get the current logged in user
+      user = User.find(session[:user])
+
+      # Get the teams
+      teams = user.teams
+      jsonHash = {
+        items: teams.as_json(root: false)
+      }
+
+      # Pretty print json?
+      jsonHash = self.pretty_print(jsonHash)
+
+      render :json => jsonHash
+    else
+      render :json => self.error_response(400, "No longer logged in.")
+    end
+  end
 end

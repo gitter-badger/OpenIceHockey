@@ -3,7 +3,8 @@ angular.module('Routes.User').config([
   function ($routeProvider) {
     $routeProvider.when('/user', {
       title: '',
-      templateUrl: 'user/home.html'
+      templateUrl: 'user/home.html',
+      controller: 'HomeController'
     });
   }
 ]);

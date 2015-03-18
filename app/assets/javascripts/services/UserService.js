@@ -61,7 +61,6 @@ angular.module('LiveHockey.Services.User').service('UserService', [
             method: 'GET'
           }).then(function (resp) {
             var d = resp.data;
-            console.log(d);
 
             if (d.error) {
               // Not logged in
@@ -79,6 +78,23 @@ angular.module('LiveHockey.Services.User').service('UserService', [
             }
           });
         }, 10 * 1000);
+      },
+      getAllTeamsForCurrentUser: function () {
+        var deferred = $q.defer();
+
+        // Send request
+        $http({
+          url: '/' + API_ENDPOINT + '/' + API_VERSION + '/user/teams',
+          method: 'GET'
+        }).then(function (resp) {
+          if (resp.data.items) {
+            deferred.resolve(resp.data.items);
+          } else {
+            // Error message
+          }
+        });
+
+        return deferred.promise;
       }
     };
 }]);

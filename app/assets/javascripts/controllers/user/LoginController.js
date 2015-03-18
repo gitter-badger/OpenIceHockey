@@ -1,8 +1,9 @@
 angular.module('Controllers.User').controller('LoginController', [
   '$rootScope',
   '$scope',
+  '$location',
   'UserService',
-  function ($rootScope, $scope, UserService) {
+  function ($rootScope, $scope, $location, UserService) {
     $scope.loginFormLoading = false;
 
     $scope.submitLogin = function () {
@@ -22,6 +23,11 @@ angular.module('Controllers.User').controller('LoginController', [
 
           // User is logged in!
           $rootScope.loggedIn = true;
+
+          // Poll the user session
+          UserService.pollUserSession();
+
+          $location.path('/user');
         }
       });
     };
