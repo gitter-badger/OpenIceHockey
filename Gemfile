@@ -40,3 +40,4 @@ gem "font-awesome-rails"
 gem "bower-rails", "~> 0.9.2"
 gem "validate_url"
 gem 'angular-rails-templates'
+gem 'bcrypt'
