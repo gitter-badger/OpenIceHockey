@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
       # User API
       post 'users/email' => 'user#email_search'
+
+      get '/' => "api#not_found"
+      get '*path' => "api#not_found"
     end
   end
 

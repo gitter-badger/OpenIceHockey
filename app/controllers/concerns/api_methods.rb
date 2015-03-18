@@ -56,4 +56,15 @@ module ApiMethods
       next: nextUrl
     }
   end
+
+  # Error hash
+  # Sent when any errors occur
+  def error_response(status, message)
+    {
+      error: {
+        status: status,
+        message: message
+      }
+    }
+  end
 end
