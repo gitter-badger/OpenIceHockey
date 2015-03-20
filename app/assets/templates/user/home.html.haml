@@ -1,0 +1,15 @@
+.row
+  .text-center{'ng-if' => '!allTeams'}
+    %i.fa.fa-refresh.fa-spin
+  %p.col-sm-12{'ng-if' => 'allTeams.length == 0'}
+    No teams found. Please add one by using the button below.
+  .col-sm-12
+    %ol.team-list{'ng-if' => 'allTeams'}
+      %li{'ng-repeat' => 'team in allTeams', 'ng-style' => '{borderLeftColor: team.brand_color}'}
+        %a{'ng-href' => '#/team/{{ team.id }}', 'title' => '{{::team.name}} team page'}
+          {{::team.name}}
+        %a.pull-right{'href' => '', 'title' => 'Update {{::team.name}} details'}
+          Update
+    %a.text-center.block.btn-add-team{'ng-href' => '#/user/team/new'}
+      Add new team
+      %i.fa.fa-plus

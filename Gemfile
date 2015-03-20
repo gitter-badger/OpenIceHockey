@@ -42,6 +42,8 @@ gem "validate_url"
 gem 'angular-rails-templates'
 gem 'bcrypt'
 
+gem 'haml', '~> 4.0.6'
+
 group :development, :test do
   gem 'web-console', '~> 2.0'
 end

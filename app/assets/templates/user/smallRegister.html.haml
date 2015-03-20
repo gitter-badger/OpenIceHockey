@@ -1,0 +1,19 @@
+%form.form{'name' => 'forms.register', 'novalidate' => true, 'ng-controller' => 'RegisterController'}
+  .form-group{'ng-class' => "{'has-error has-feedback': forms.register.$dirty && forms.register.email.$dirty && !forms.register.email.$valid}"}
+    %label.control-label{'for' => 'form-register-email'}
+      Email
+    %input#form-register-email.form-control{'type' => 'email', 'name' => 'email', 'ng-model' => 'user.email', 'required' => true, 'email-unique' => true}
+    %span.fa.fa-times.form-control-feedback{'ng-show' => 'forms.register.$dirty && forms.register.email.$dirty && !forms.register.email.$valid'}
+  .form-group{'ng-class' => "{'has-error has-feedback': forms.register.$dirty && forms.register.password.$dirty && !forms.register.password.$valid}"}
+    %label.control-label{'for' => 'form-register-password'}
+      Password
+    %input#form-register-password.form-control{'type' => 'password', 'name' => 'password', 'ng-model' => 'user.password', 'required' => true, 'minlength' => 5}
+    %span.fa.fa-times.form-control-feedback{'ng-show' => 'forms.register.$dirty && forms.register.password.$dirty && !forms.register.password.$valid'}
+  .form-group{'ng-class' => "{'has-error has-feedback': forms.register.$dirty && forms.register.confirmpassword.$dirty && !forms.register.confirmpassword.$valid}"}
+    %label.control-label{'for' => 'form-register-confirm-password'}
+      Confirm Password
+    %input#form-register-confirm-password.form-control{'type' => 'password', 'name' => 'confirmpassword', 'ng-model' => 'user.confirmpassword', 'required' => true, 'input-match' => 'user.password'}
+    %span.fa.fa-times.form-control-feedback{'ng-show' => 'forms.register.$dirty && forms.register.confirmpassword.$dirty && !forms.register.confirmpassword.$valid'}
+  .form-group
+    %ajax-button{'btn-type' => "'btn-success'", 'loading' => 'registerFormLoading', 'disabled' => '!forms.register.$valid', 'click' => 'submitRegister'}
+      Register

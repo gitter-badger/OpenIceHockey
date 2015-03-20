@@ -1,0 +1,15 @@
+.row
+  .col-sm-6
+    %div{'ng-include' => "'user/smallRegister.html'"}
+  .col-sm-6
+    %div{'ng-include' => "'user/smallLogin.html'"}
+.row
+  .col-sm-4
+    %h4
+      Latest Teams
+    .text-center{'ng-if' => '!latestTeams.length'}
+      .fa.fa-refresh.fa-spin
+    %ol.team-list.list-unstyled
+      %li{'ng-repeat' => 'team in ::latestTeams', 'ng-style' => '{borderLeftColor: team.brand_color}'}
+        %a{'ng-href' => '#/team/{{ team.id }}', 'title' => '{{::team.name}} team page'}
+          {{::team.name}}
