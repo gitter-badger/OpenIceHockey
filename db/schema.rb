@@ -11,34 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318191100) do
+ActiveRecord::Schema.define(version: 20150404120439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "staff_members", force: true do |t|
-    t.string   "name"
-    t.string   "job_title"
+  create_table "staff_members", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "job_title",  limit: 255
     t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "teams", force: true do |t|
-    t.string   "name"
+  create_table "teams", force: :cascade do |t|
+    t.string   "name",        limit: 255
     t.text     "logo"
     t.text     "url"
-    t.string   "brand_color"
+    t.string   "brand_color", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.text     "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_digest"
+    t.string   "password_digest", limit: 255
+    t.string   "user_type"
   end
 
 end

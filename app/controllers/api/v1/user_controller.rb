@@ -42,7 +42,7 @@ class Api::V1::UserController < ActionController::Base
   # POST request
   def user_register
     # Create a new user
-    user = User.new(email: params[:email], password: params[:password])
+    user = User.new(email: params[:email], password: params[:password], user_type: params[:user_type])
 
     if user.valid?
       # Save the user

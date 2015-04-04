@@ -1,8 +1,12 @@
 angular.module('Controllers.User').controller('RegisterController', [
   '$scope',
   'UserService',
-  function ($scope, UserService) {
+  function ($scope, $rootScope, UserService) {
     $scope.registerFormLoading = false;
+    
+    $scope.user = {
+      type: 'admin'
+    };
 
     $scope.submitRegister = function () {
       $scope.registerFormLoading = true;

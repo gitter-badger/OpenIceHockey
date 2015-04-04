@@ -15,5 +15,18 @@
     %input#form-register-confirm-password.form-control{'type' => 'password', 'name' => 'confirmpassword', 'ng-model' => 'user.confirmpassword', 'required' => true, 'input-match' => 'user.password'}
     %span.fa.fa-times.form-control-feedback{'ng-show' => 'forms.register.$dirty && forms.register.confirmpassword.$dirty && !forms.register.confirmpassword.$valid'}
   .form-group
+    %label.show.control-label
+      User Type
+    .btn-group{'data-toggle' => 'buttons'}
+      %label.btn.btn-default{'type' => 'button', 'ng-class' => '{ active: user.type == "admin" }'}
+        %input{'type' => 'radio', 'name' => 'user-type', 'value' => 'admin', 'ng-model' => 'user.type'}
+        Admin
+      %label.btn.btn-default{'type' => 'button', 'ng-class' => '{ active: user.type == "team" }'}
+        %input{'type' => 'radio', 'name' => 'user-type', 'value' => 'team', 'ng-model' => 'user.type'}
+        Team
+      %label.btn.btn-default{'type' => 'button', 'ng-class' => '{ active: user.type == "supporter" }'}
+        %input{'type' => 'radio', 'name' => 'user-type', 'value' => 'supporter', 'ng-model' => 'user.type'}
+        Supporter
+  .form-group
     %ajax-button{'btn-type' => "'btn-success'", 'loading' => 'registerFormLoading', 'disabled' => '!forms.register.$valid', 'click' => 'submitRegister'}
       Register

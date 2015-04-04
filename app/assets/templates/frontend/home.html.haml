@@ -7,7 +7,7 @@
   .col-sm-4
     %h4
       Latest Teams
-    .text-center{'ng-if' => '!latestTeams.length'}
+    .text-center{'ng-if' => 'latestTeams == undefined'}
       .fa.fa-refresh.fa-spin
     %ol.team-list.list-unstyled
       %li{'ng-repeat' => 'team in ::latestTeams', 'ng-style' => '{borderLeftColor: team.brand_color}'}
