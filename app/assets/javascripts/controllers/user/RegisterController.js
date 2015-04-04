@@ -1,5 +1,6 @@
 angular.module('Controllers.User').controller('RegisterController', [
   '$scope',
+  '$rootScope',
   'UserService',
   function ($scope, $rootScope, UserService) {
     $scope.registerFormLoading = false;
@@ -14,7 +15,8 @@ angular.module('Controllers.User').controller('RegisterController', [
       // Send the register request
       UserService.register({
         email: $scope.user.email,
-        password: $scope.user.password
+        password: $scope.user.password,
+        user_type: $scope.user.type
       }).then(function (data) {
         $scope.registerFormLoading = false;
 

@@ -9,4 +9,11 @@ angular.module('Controllers.Frontend').controller('MainController', [
     }).then(function (data) {
       $scope.latestTeams = data;
     });
+    
+    // Login/Register tabs
+    $scope.tab = 'login';
+    $scope.changeTab = function (type) {
+      $scope.tab = type;
+      return false;
+    };
 }]);

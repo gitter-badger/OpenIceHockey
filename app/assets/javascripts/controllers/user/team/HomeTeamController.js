@@ -1,4 +1,4 @@
-angular.module('Controllers.User').controller('HomeController', [
+angular.module('Controllers.User').controller('HomeTeamController', [
   '$scope',
   '$rootScope',
   'UserService',

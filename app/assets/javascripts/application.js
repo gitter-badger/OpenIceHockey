@@ -24,6 +24,7 @@ angular.module('LiveHockey').run([
     // Is the user logged in?
     if (typeof LOGGED_IN !== 'undefined') {
       $rootScope.loggedIn = true;
+      $rootScope.userType = LOGGED_IN_TYPE;
       $location.path('/user');
 
       // Poll the user session

@@ -1,8 +1,20 @@
 .row
-  .col-sm-6
-    %div{'ng-include' => "'user/smallRegister.html'"}
-  .col-sm-6
-    %div{'ng-include' => "'user/smallLogin.html'"}
+  .col-md-6{'role' => 'tabpanel'}
+    %ul.nav.nav-tabs{'role' => 'tablist'}
+      %li{'ng-class' => '{active: tab == "login"}'}
+        %a{'href' => '', 'aria-controls' => 'Login', 'role' => 'tab', 'ng-click' => 'changeTab("login")'}
+          %i.fa.fa-user
+          Login
+      %li{'ng-class' => '{active: tab == "register"}'}
+        %a{'href' => '', 'aria-controls' => 'Register', 'role' => 'tab', 'ng-click' => 'changeTab("register")'}
+          %i.fa.fa-user-plus
+          Register
+    .tab-content
+      .tab-pane{'role' => 'tabpanel', 'ng-class' => '{active: tab == "login"}'}
+        %div{'ng-include' => "'user/smallLogin.html'"}
+      .tab-pane{'role' => 'tabpanel', 'ng-class' => '{active: tab == "register"}'}
+        %div{'ng-include' => "'user/smallRegister.html'"}
+
 .row
   .col-sm-4
     %h4
