@@ -1,5 +1,7 @@
 # README [![Build Status](https://travis-ci.org/iamphill/OpenIceHockey.svg?branch=master)](https://travis-ci.org/iamphill/OpenIceHockey)
 
+[![Join the chat at https://gitter.im/iamphill/OpenIceHockey](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/iamphill/OpenIceHockey?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 With my love of Ice Hockey growing bigger by the day, it makes sense to make something that would track everything that happens.
 Whilst a lot of products like this exist, the data they offer is either very closed off to themselves/the EIHA or they don't offer very good stats or live match data.
 
